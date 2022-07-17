@@ -1,10 +1,31 @@
-import styles from "../styles/Footer.module.css";
+import styled from "@emotion/styled";
+
+const Section = styled.footer`
+  .footer {
+    font-size: 18px;
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+`;
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <a href="https://github.com/Dositan">&copy; Dositan 2021-2022</a>
-    </footer>
+    <Section>
+      <div className="footer">
+        <a href="https://github.com/Dositan">&copy; Dositan 2021-2022</a>
+      </div>
+    </Section>
   );
 };
 
