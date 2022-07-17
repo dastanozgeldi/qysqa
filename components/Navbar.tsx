@@ -10,7 +10,7 @@ const Navbar = () => {
         </li>
         <div className={styles.links}>
           <li>
-            <Link href="#about">About</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
             <Link href="#lookup">Lookup</Link>
