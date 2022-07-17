@@ -47,7 +47,7 @@ const WhatIsQysqa = () => {
           <p>Qysqa makes it easy for you to shorten your long-long links</p>
           <p>
             It was created using{" "}
-            <span className="highlight">Flask + Jinja templating system.</span>{" "}
+            <span className="highlight">Next.js</span>{". "}
           </p>
           <p>Paste Link → Shorten → Use</p>
         </div>
