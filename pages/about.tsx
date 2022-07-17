@@ -47,7 +47,7 @@ const About: NextPage = () => {
 
         <div className={styles.card}>
           <Image
-            src="/images/features.png"
+            src="/images/plans.png"
             alt="What is Qysqa"
             width={300}
             height={170}
