@@ -1,14 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #fff;
+  background-color: #0c2431;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  font-weight: 700;
+}
+
+a:active,
+a:focus,
+a:hover {
+  transition: 0.4s;
+  color: #f09d03;
+  text-decoration: underline;
 }
 
 * {

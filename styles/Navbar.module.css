@@ -1,0 +1,17 @@
+.navbar {
+  font-size: 18px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.navbar > ul {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
