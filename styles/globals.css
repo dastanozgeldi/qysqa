@@ -16,7 +16,6 @@ a {
 }
 
 a:active,
-a:focus,
 a:hover {
   transition: 0.4s;
   color: #f09d03;
