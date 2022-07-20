@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Layout from "../components/Layout";
-import CreateLink from "../components/CreateLink";
+import CreateLink from "../components/Shortener/CreateLink";
 
 const Home: NextPage = () => {
   return (
