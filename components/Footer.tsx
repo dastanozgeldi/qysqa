@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <Section>
       <div className="footer">
-        <a href="https://github.com/Dositan">&copy; Dositan 2021-2022</a>
+        <a href="https://github.com/jolshylar">&copy; Jolshylar 2021-2022</a>
       </div>
     </Section>
   );
