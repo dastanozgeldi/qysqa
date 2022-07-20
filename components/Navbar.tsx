@@ -27,7 +27,7 @@ const Navbar = () => {
       <nav className="navbar">
         <ul>
           <li className="logo">
-            <Link href="/">qysqa - shortener</Link>
+            <Link href="/">qysqa - url shortener</Link>
           </li>
           <div className="links">
             <li>
