@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import Layout from "../components/Layout";
-import Main from "../components/Main";
+import CreateLink from "../components/CreateLink";
 
 const Home: NextPage = () => {
   return (
     <Layout title="Home">
-      <Main />
+      <CreateLink />
     </Layout>
   );
 };
