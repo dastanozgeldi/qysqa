@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 type CopyLinkParams = {
-  shortLink: string;
+  link: string;
 };
 
-const CopyLink = ({ shortLink }: CopyLinkParams) => {
+const CopyLink = ({ link }: CopyLinkParams) => {
   const [isCopied, setIsCopied] = useState(false);
 
   async function copyTextToClipboard(text: string) {
@@ -14,8 +14,8 @@ const CopyLink = ({ shortLink }: CopyLinkParams) => {
 
   return (
     <div style={{ marginTop: "5vh" }}>
-      <input readOnly value={shortLink} />
-      <button onClick={() => copyTextToClipboard(shortLink)}>
+      <input readOnly value={link} />
+      <button onClick={() => copyTextToClipboard(link)}>
         {isCopied ? "Copied!" : "Copy"}
       </button>
     </div>
