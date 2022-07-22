@@ -1,19 +1,15 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+import { ReactNode } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 interface LayoutProps {
-  children: any;
-  title: string;
+  children: ReactNode;
 }
 
-const Layout: NextPage<LayoutProps> = ({ children, title }) => {
+const Layout: NextPage<LayoutProps> = ({ children }) => {
   return (
     <div>
-      <Head>
-        <title>{title} | Qysqa</title>
-      </Head>
       <Navbar />
       {children}
       <Footer />
