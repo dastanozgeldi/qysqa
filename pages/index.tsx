@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import CreateLink from "../components/Shortener/CreateLink";
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Home">
+    <Layout>
+      <Head>
+        <title>Home | Qysqa</title>
+      </Head>
       <CreateLink />
     </Layout>
   );
