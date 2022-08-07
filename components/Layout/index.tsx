@@ -21,11 +21,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <meta name="twitter:title" content="Qysqa - Short Links Rule" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@dastanozgeldi" />
-        <meta name="twitter:image" content="https://qysqa.dosek.xyz/card.png" />
+        <meta name="twitter:image" content="https://q.dosek.xyz/card.png" />
         <meta property="og:site_name" content="Qysqa" />
         <meta name="og:title" content="Qysqa - Short Links Rule" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://qysqa.dosek.xyz/card.png" />
+        <meta property="og:image" content="https://q.dosek.xyz/card.png" />
         <title>Qysqa - Short Links Rule</title>
       </Head>
       <Header links={links} />

@@ -31,7 +31,7 @@ const Lookup = () => {
         <h2 className="text-center">&lt; URL Lookup &gt;</h2>
         <input
           className="mb-2"
-          placeholder={`https://qysqa.dosek.xyz/go/mylinkedin`}
+          placeholder={`https://q.dosek.xyz/go/mylinkedin`}
           onChange={(e) => setShortLink(e.target.value)}
         />
         <button className="hover:bg-darker-secondary">Get Original Link</button>
