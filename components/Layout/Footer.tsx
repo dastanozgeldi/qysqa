@@ -11,7 +11,7 @@ const Footer = ({ links }: { links: { label: string; href: string }[] }) => {
   ));
 
   return (
-    <footer className="border-t-2 py-4">
+    <footer className="text-lg border-t-2 py-4">
       <div className="flex flex-col md:flex-row gap-4 justify-between items-center mx-8">
         <Logo />
         <div className="flex gap-4 text-lg">{items}</div>
