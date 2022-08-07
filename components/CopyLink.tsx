@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-type CopyLinkParams = {
-  link: string;
-};
-
-const CopyLink = ({ link }: CopyLinkParams) => {
+const CopyLink = ({ link }: { link: string }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   async function copyTextToClipboard(text: string) {
@@ -13,8 +9,8 @@ const CopyLink = ({ link }: CopyLinkParams) => {
   }
 
   return (
-    <div style={{ marginTop: "5vh" }}>
-      <input readOnly value={link} />
+    <div className="mt-[5vh]">
+      <input className="mb-2" readOnly value={link} />
       <button onClick={() => copyTextToClipboard(link)}>
         {isCopied ? "Copied!" : "Copy"}
       </button>

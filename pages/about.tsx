@@ -1,18 +1,14 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Features from "../components/About/Features";
 import WhatIsQysqa from "../components/About/WhatIsQysqa";
-import Layout from "../components/Layout";
+import Page from "../components/Layout/Page";
 
 const About: NextPage = () => {
   return (
-    <Layout>
-      <Head>
-        <title>About | Qysqa</title>
-      </Head>
+    <Page title="About" className="flex-col">
       <WhatIsQysqa />
       <Features />
-    </Layout>
+    </Page>
   );
 };
 

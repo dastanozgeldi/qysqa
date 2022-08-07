@@ -1,12 +1,10 @@
 import { prisma } from "../../db/client";
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
-export const getServerSideProps = async ({ params }: Params) => {
+export const getServerSideProps = async ({
+  params,
+}: {
+  params: { slug: string };
+}) => {
   try {
     const { slug } = params;
     const data = await prisma.shortLink.findMany({ where: { slug } });
