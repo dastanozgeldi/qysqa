@@ -3,15 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  BarChart3,
-  Copy,
-  ExternalLink,
-  LinkIcon,
-  Plus,
-  Trash2,
-} from "lucide-react";
+import { BarChart3, Copy, ExternalLink, Plus, Trash2 } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { Footer } from "@/components/footer";
 
 export default function Dashboard() {
   return (
@@ -89,17 +83,7 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-      <footer className="border-t py-6">
-        <div className="px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <LinkIcon className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium">qysqa.link</span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} qysqa. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
