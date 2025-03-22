@@ -121,7 +121,7 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <Card key={index} className="border-primary/10">
-                  <CardContent className="p-6">
+                  <CardContent className="px-6">
                     <div className="rounded-full bg-primary/10 p-3 w-fit mb-4">
                       {feature.icon}
                     </div>
