@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="px-4 md:px-6 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Image alt="logo" src="/images/logo.png" width={24} height={24} />
             <span className="text-xl font-bold">qysqa</span>
@@ -51,7 +51,7 @@ export default function Home() {
       </header>
       <main className="flex-1">
         <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/50">
-          <div className="container px-4 md:px-6">
+          <div className="px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4 mb-12">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary mb-2">
                 <span className="font-medium">#1 link shortener in 🇰🇿</span>
@@ -116,7 +116,7 @@ export default function Home() {
         </section>
 
         <section id="features" className="py-20 bg-background">
-          <div className="container px-4 md:px-6">
+          <div className="px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
                 Powerful features for everyone
@@ -147,7 +147,7 @@ export default function Home() {
         </section>
 
         <section id="how-it-works" className="py-20 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
                 How qysqa works
@@ -191,7 +191,7 @@ export default function Home() {
         </section>
 
         <section className="py-20 bg-primary text-primary-foreground">
-          <div className="container px-4 md:px-6 text-center">
+          <div className="px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
               Ready to start shortening?
             </h2>
@@ -206,7 +206,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 md:h-16">
+        <div className="px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4 md:h-16">
           <div className="flex items-center gap-2">
             <LinkIcon className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium">qysqa.link</span>
