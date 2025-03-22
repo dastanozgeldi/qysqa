@@ -35,10 +35,13 @@ export default function Page() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">
+            <Button size="sm" asChild>
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
+            {/* <Button variant="outline" size="sm">
               Log in
             </Button>
-            <Button size="sm">Sign up</Button>
+            <Button size="sm">Sign up</Button> */}
           </div>
         </div>
       </header>
