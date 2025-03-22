@@ -34,12 +34,6 @@ export default function Home() {
             >
               How It Works
             </Link>
-            <Link
-              href="#pricing"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Pricing
-            </Link>
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
@@ -193,14 +187,13 @@ export default function Home() {
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-              Ready to start shortening?
+              Ready to start?
             </h2>
             <p className="max-w-[700px] mx-auto mb-8 opacity-90">
-              Join thousands of users in Kazakhstan and beyond who trust qysqa
-              for their link shortening needs.
+              Join thousands of users who trust their links to qysqa.
             </p>
             <Button size="lg" variant="secondary" className="h-12 px-8">
-              Get started for free
+              Get started free forever
             </Button>
           </div>
         </section>
@@ -208,7 +201,7 @@ export default function Home() {
       <footer className="border-t py-6 md:py-0">
         <div className="px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4 md:h-16">
           <div className="flex items-center gap-2">
-            <LinkIcon className="h-5 w-5 text-primary" />
+            <Image alt="logo" src="/images/logo.png" width={20} height={20} />
             <span className="text-sm font-medium">qysqa.link</span>
           </div>
           <p className="text-sm text-muted-foreground">
