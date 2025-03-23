@@ -1,3 +1,4 @@
+import { formatDistance } from "date-fns";
 import Link from "next/link";
 import { BarChart3, Copy, ExternalLink, Trash2 } from "lucide-react";
 import { SelectLink } from "@/db/schema";
@@ -25,11 +26,13 @@ export function LinkCard({ link }: { link: SelectLink }) {
               {link.originalUrl}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <BarChart3 className="h-4 w-4" /> {link.clicks} clicks
             </span>
-            <span>Created {link.createdAt.toLocaleString()}</span>
+            <span>
+              {formatDistance(link.createdAt, new Date(), { addSuffix: true })}
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" asChild>
