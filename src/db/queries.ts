@@ -19,3 +19,7 @@ export async function getLinks(userId: string | null) {
     return [];
   }
 }
+
+export function getLink(id: number) {
+  return db.select().from(linksTable).where(eq(linksTable.id, id));
+}

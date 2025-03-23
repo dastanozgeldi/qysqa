@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plus } from "lucide-react";
 import { auth } from "@clerk/nextjs/server";
-import { getLinks } from "@/db/query";
+import { getLinks } from "@/db/queries";
 import { createShortLink } from "./_actions";
 import { LinkCard } from "./link-card";
 
