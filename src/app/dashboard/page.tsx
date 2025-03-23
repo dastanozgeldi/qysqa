@@ -4,23 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart3, Copy, ExternalLink, Plus, Trash2 } from "lucide-react";
-import { Logo } from "@/components/logo";
-import { Footer } from "@/components/footer";
 
 export default function Dashboard() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="px-4 md:px-6 flex h-16 items-center justify-between">
-          <Logo />
-          <div className="flex items-center gap-4">
-            <span className="text-sm">user@example.com</span>
-            <Button variant="outline" size="sm">
-              Logout
-            </Button>
-          </div>
-        </div>
-      </header>
       <main className="flex-1 px-4 md:px-6 py-8">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -83,7 +70,6 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
