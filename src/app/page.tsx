@@ -29,8 +29,8 @@ export default function Page() {
                     placeholder="Paste your long URL here"
                     className="flex-1 h-12"
                   />
-                  <Button className="h-12 px-6">
-                    Shorten <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button className="h-12">
+                    Shorten <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-3 text-center">
