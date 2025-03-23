@@ -2,12 +2,13 @@
 
 import { formatDistance } from "date-fns";
 import Link from "next/link";
-import { BarChart3, Copy, ExternalLink, Trash2, Check } from "lucide-react";
+import { BarChart3, Copy, ExternalLink, Check } from "lucide-react";
 import { SelectLink } from "@/db/schema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
+import { DeleteLinkDialog } from "./delete-link-dialog";
 
 export function LinkCard({ link }: { link: SelectLink }) {
   const [showTick, setShowTick] = useState(false);
@@ -19,7 +20,6 @@ export function LinkCard({ link }: { link: SelectLink }) {
       setShowTick(true);
       toast.success("Copied to clipboard!");
 
-      // Reset to copy icon after 1 second
       setTimeout(() => {
         setShowTick(false);
       }, 3000);
@@ -76,14 +76,7 @@ export function LinkCard({ link }: { link: SelectLink }) {
                 <ExternalLink className="h-4 w-4 mr-1" /> Visit
               </a>
             </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="h-8 w-8 text-destructive"
-            >
-              <Trash2 className="h-4 w-4" />
-              <span className="sr-only">Delete</span>
-            </Button>
+            <DeleteLinkDialog slug={link.slug} />
           </div>
         </div>
       </CardContent>

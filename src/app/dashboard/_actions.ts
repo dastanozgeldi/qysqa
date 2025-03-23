@@ -4,6 +4,7 @@ import { linksTable } from "@/db/schema";
 import { revalidatePath } from "next/cache";
 import { nanoid } from "nanoid";
 import { auth } from "@clerk/nextjs/server";
+import { eq } from "drizzle-orm";
 
 export async function createLinkAction(prevState: unknown, formData: FormData) {
   const { userId } = await auth();
@@ -32,6 +33,19 @@ export async function createLinkAction(prevState: unknown, formData: FormData) {
     return { status: "success" };
   } catch (error) {
     console.error("Error creating short link:", error);
+    return { status: "error" };
+  }
+}
+
+export async function deleteLinkAction(prevState: unknown, formData: FormData) {
+  try {
+    const slug = formData.get("slug") as string;
+    await db.delete(linksTable).where(eq(linksTable.slug, slug));
+
+    revalidatePath("/dashboard");
+    return { status: "success" };
+  } catch (error) {
+    console.error("Error deleting short link:", error);
     return { status: "error" };
   }
 }
