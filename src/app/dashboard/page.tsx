@@ -4,8 +4,62 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart3, Copy, ExternalLink, Plus, Trash2 } from "lucide-react";
+import { db } from "@/db";
+import { linksTable, SelectLink } from "@/db/schema";
+import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
+import { nanoid } from "nanoid";
+import { desc, eq } from "drizzle-orm";
 
-export default function Dashboard() {
+// Server action to create a new shortened link
+async function createShortLink(formData: FormData, userId: string | null) {
+  const url = formData.get("url") as string;
+
+  if (!url) {
+    throw new Error("URL is required");
+  }
+
+  try {
+    // Generate a short, unique identifier
+    const shortId = nanoid(6);
+
+    // Insert the new link into the database
+    await db.insert(linksTable).values({
+      userId,
+      slug: shortId,
+      originalUrl: url,
+    });
+
+    // Revalidate the dashboard page to show the new link
+    revalidatePath("/dashboard");
+  } catch (error) {
+    console.error("Error creating short link:", error);
+    throw new Error("Failed to create short link");
+  }
+}
+
+async function getLinks(userId: string | null) {
+  if (!userId) return;
+
+  try {
+    const links = await db
+      .select()
+      .from(linksTable)
+      .where(eq(linksTable.userId, userId))
+      .orderBy(desc(linksTable.createdAt))
+      .limit(50);
+
+    return links;
+  } catch (error) {
+    console.error("Error fetching links:", error);
+    return [];
+  }
+}
+
+export default async function Dashboard() {
+  const { userId } = await auth();
+  const links = await getLinks(userId);
+
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1 px-4 md:px-6 py-8">
@@ -23,15 +77,25 @@ export default function Dashboard() {
           </div>
 
           <Card className="border-primary/20">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row gap-4">
+            <CardContent className="px-6">
+              <form
+                action={async (formData) => {
+                  "use server";
+                  await createShortLink(formData, userId);
+                }}
+                className="flex flex-col md:flex-row gap-4"
+              >
                 <Input
                   type="url"
+                  name="url"
                   placeholder="Paste your long URL here"
                   className="flex-1 h-12"
+                  required
                 />
-                <Button className="h-12 px-6">Shorten Link</Button>
-              </div>
+                <Button type="submit" className="h-12 px-6">
+                  Shorten Link
+                </Button>
+              </form>
             </CardContent>
           </Card>
 
@@ -47,21 +111,21 @@ export default function Dashboard() {
               </div>
               <TabsContent value="all" className="mt-4">
                 <div className="grid gap-4">
-                  {demoLinks.map((link) => (
+                  {links?.map((link) => (
                     <LinkCard key={link.id} link={link} />
                   ))}
                 </div>
               </TabsContent>
               <TabsContent value="recent" className="mt-4">
                 <div className="grid gap-4">
-                  {demoLinks.slice(0, 3).map((link) => (
+                  {links?.slice(0, 3).map((link) => (
                     <LinkCard key={link.id} link={link} />
                   ))}
                 </div>
               </TabsContent>
               <TabsContent value="top" className="mt-4">
                 <div className="grid gap-4">
-                  {demoLinks.slice(2, 5).map((link) => (
+                  {links?.slice(2, 5).map((link) => (
                     <LinkCard key={link.id} link={link} />
                   ))}
                 </div>
@@ -74,7 +138,7 @@ export default function Dashboard() {
   );
 }
 
-function LinkCard({ link }: { link: (typeof demoLinks)[0] }) {
+function LinkCard({ link }: { link: SelectLink }) {
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-0">
@@ -83,7 +147,7 @@ function LinkCard({ link }: { link: (typeof demoLinks)[0] }) {
             <div className="flex items-center gap-2">
               <h3 className="font-medium truncate">
                 <Link href={`/stats/${link.id}`} className="hover:underline">
-                  {link.shortUrl}
+                  qysqa.link/{link.slug}
                 </Link>
               </h3>
               <Button variant="ghost" size="icon" className="h-6 w-6">
@@ -99,7 +163,7 @@ function LinkCard({ link }: { link: (typeof demoLinks)[0] }) {
             <span className="flex items-center gap-1">
               <BarChart3 className="h-4 w-4" /> {link.clicks} clicks
             </span>
-            <span>Created {link.created}</span>
+            <span>Created {link.createdAt.toLocaleString()}</span>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" asChild>
@@ -108,7 +172,7 @@ function LinkCard({ link }: { link: (typeof demoLinks)[0] }) {
               </Link>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href={link.shortUrl} target="_blank" rel="noopener noreferrer">
+              <a href={link.slug} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-1" /> Visit
               </a>
             </Button>
@@ -126,46 +190,3 @@ function LinkCard({ link }: { link: (typeof demoLinks)[0] }) {
     </Card>
   );
 }
-
-const demoLinks = [
-  {
-    id: "1",
-    shortUrl: "qysqa.link/promo24",
-    originalUrl:
-      "https://example.com/very/long/url/for/special/promotion/spring/2024/campaign",
-    clicks: 1245,
-    created: "2 days ago",
-  },
-  {
-    id: "2",
-    shortUrl: "qysqa.link/blog",
-    originalUrl:
-      "https://myblog.example.com/posts/how-to-use-link-shorteners-effectively",
-    clicks: 873,
-    created: "1 week ago",
-  },
-  {
-    id: "3",
-    shortUrl: "qysqa.link/shop",
-    originalUrl:
-      "https://mystore.example.com/products/category/electronics/smartphones",
-    clicks: 2156,
-    created: "2 weeks ago",
-  },
-  {
-    id: "4",
-    shortUrl: "qysqa.link/event",
-    originalUrl:
-      "https://events.example.com/2024/annual-tech-conference/registration",
-    clicks: 542,
-    created: "3 weeks ago",
-  },
-  {
-    id: "5",
-    shortUrl: "qysqa.link/app",
-    originalUrl:
-      "https://play.google.com/store/apps/details?id=com.example.myapp",
-    clicks: 1689,
-    created: "1 month ago",
-  },
-];

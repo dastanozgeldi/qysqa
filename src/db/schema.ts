@@ -8,3 +8,6 @@ export const linksTable = pgTable("links", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   userId: varchar("user_id", { length: 256 }), // Optional: for Clerk authentication
 });
+
+export type SelectLink = typeof linksTable.$inferSelect;
+export type InsertLink = typeof linksTable.$inferInsert;
