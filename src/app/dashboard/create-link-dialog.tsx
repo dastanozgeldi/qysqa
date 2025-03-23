@@ -74,6 +74,8 @@ export function CreateLinkDialog() {
                 placeholder="custom-slug (optional)"
                 pattern="[a-zA-Z0-9\-]+"
                 title="Only letters, numbers, and hyphens are allowed"
+                minLength={3}
+                maxLength={100}
               />
             </div>
           </div>
