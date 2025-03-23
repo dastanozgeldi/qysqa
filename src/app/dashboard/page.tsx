@@ -41,9 +41,11 @@ export default async function Dashboard() {
               {/* TODO: filter by clicks */}
               <TabsContent value="top" className="mt-4">
                 <div className="grid gap-4">
-                  {links?.map((link) => (
-                    <LinkCard key={link.id} link={link} />
-                  ))}
+                  {[...links]
+                    .sort((a, b) => b.clicks - a.clicks)
+                    .map((link) => (
+                      <LinkCard key={link.id} link={link} />
+                    ))}
                 </div>
               </TabsContent>
             </Tabs>
