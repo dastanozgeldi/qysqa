@@ -29,7 +29,7 @@ export default function Page() {
               </p>
             </div>
             <Card className="mx-auto max-w-3xl shadow-lg border-primary/20">
-              <CardContent className="p-6">
+              <CardContent className="px-6">
                 <div className="flex flex-col md:flex-row gap-4">
                   <Input
                     type="url"
