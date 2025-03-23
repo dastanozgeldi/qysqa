@@ -5,10 +5,7 @@ import { revalidatePath } from "next/cache";
 import { nanoid } from "nanoid";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createLinkAction(
-  prevState: unknown,
-  formData: FormData
-) {
+export async function createLinkAction(prevState: unknown, formData: FormData) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 

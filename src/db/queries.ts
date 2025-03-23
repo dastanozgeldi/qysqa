@@ -13,7 +13,7 @@ export async function getLinks() {
       .from(linksTable)
       .where(eq(linksTable.userId, userId))
       .orderBy(desc(linksTable.createdAt))
-      .limit(50);
+      .limit(10);
 
     return links;
   } catch (error) {
