@@ -1,14 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  ExternalLink,
-  LinkIcon,
-  BarChart3,
-  Shield,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, LinkIcon, BarChart3, Shield, Zap } from "lucide-react";
 
 export default function Page() {
   return (
@@ -86,8 +79,7 @@ export default function Page() {
                 Powerful features for everyone
               </h2>
               <p className="max-w-[700px] text-muted-foreground">
-                Everything you need to manage, track, and optimize your links in
-                one place.
+                Everything you need to manage and track your links in one place.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -154,13 +146,13 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-800 text-primary-foreground">
           <div className="px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
               Ready to start?
             </h2>
             <p className="max-w-[700px] mx-auto mb-8 opacity-90">
-              Join thousands of users who trust their links to qysqa.
+              join thousands of users who trust their links to qysqa.
             </p>
             <Button size="lg" variant="secondary" className="h-12 px-8">
               Get started free forever
@@ -186,26 +178,9 @@ const features = [
       "Track clicks, geographic data, referrers, and more in real-time.",
   },
   {
-    icon: <Zap className="h-5 w-5 text-primary" />,
-    title: "Fast Redirection",
-    description:
-      "Our optimized infrastructure ensures lightning-fast redirects.",
-  },
-  {
-    icon: <ExternalLink className="h-5 w-5 text-primary" />,
-    title: "Bulk Shortening",
-    description: "Shorten multiple URLs at once with our bulk shortening tool.",
-  },
-  {
     icon: <Shield className="h-5 w-5 text-primary" />,
     title: "Link Management",
     description:
       "Organize, edit, and manage all your links from one dashboard.",
-  },
-  {
-    icon: <ArrowRight className="h-5 w-5 text-primary" />,
-    title: "API Access",
-    description:
-      "Integrate our link shortening service into your own applications.",
   },
 ];
