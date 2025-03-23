@@ -1,9 +1,11 @@
 import { db } from "@/db";
 import { linksTable } from "@/db/schema";
+import { auth } from "@clerk/nextjs/server";
 import { desc, eq } from "drizzle-orm";
 
-export async function getLinks(userId: string | null) {
-  if (!userId) return;
+export async function getLinks() {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
 
   try {
     const links = await db
