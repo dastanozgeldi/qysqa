@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, LinkIcon, BarChart3, Shield, Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -29,8 +30,10 @@ export default function Page() {
                     placeholder="Paste your long URL here"
                     className="flex-1 h-12"
                   />
-                  <Button className="h-12">
-                    Shorten <ArrowRight className="ml-1 h-4 w-4" />
+                  <Button className="h-12" asChild>
+                    <Link href="/dashboard">
+                      Shorten <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-3 text-center">
