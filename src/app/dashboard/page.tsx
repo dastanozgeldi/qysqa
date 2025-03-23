@@ -52,7 +52,7 @@ export default async function Dashboard() {
           </Card>
 
           <div className="flex items-center justify-between">
-            <Tabs defaultValue="all" className="w-full">
+            <Tabs defaultValue="recent" className="w-full">
               <TabsList>
                 <TabsTrigger value="recent">Recent</TabsTrigger>
                 <TabsTrigger value="top">Popular</TabsTrigger>
